@@ -53,5 +53,49 @@ const star2 = () => {
     );
 }
 
+const star3 = () => {
+    const numbers = [ "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" ];
+    const getValue3 = (input: string) => {
+        const foundNumbers: number[] = [];
+        let fromStart = ""
+        for(let i = 0; i < input.length; i++) {
+            if(+input[i]) {
+                foundNumbers.push(+input[i])
+                break;
+            }
+            fromStart = fromStart + input[i];
+            const foundNumber = numbers.find((num) => fromStart.match(RegExp(`${num}`)))
+            if(foundNumber) {
+                foundNumbers.push(numbers.indexOf(foundNumber) + 1)
+                break;
+            }
+            
+        }
+        let fromEnd = "";
+        for(let i = input.length; i > 0; i--) {
+            if(+input[i]) {
+                foundNumbers.push(+input[i])
+                break;
+            }
+            fromEnd = input[i] + fromEnd;
+            const foundNumber = numbers.find((num) => fromEnd.match(RegExp(`${num}`)))
+            if(foundNumber) {
+                foundNumbers.push(numbers.indexOf(foundNumber) + 1)
+                break;
+            }
+
+        }
+        const first = foundNumbers[0];
+        const last = foundNumbers[foundNumbers.length - 1];
+        return +`${first}${last}`
+    };
+    
+    console.log(
+        inputs.reduce((acc, curr) => {
+            return acc + getValue3(curr);
+        }, 0)
+    );
+}
 star2();
+star3();
 

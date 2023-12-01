@@ -17,17 +17,7 @@ console.log(
 	}, 0)
 );
 
-const numbers = [
-	"one",
-	"two",
-	"three",
-	"four",
-	"five",
-	"six",
-	"seven",
-	"eight",
-	"nine",
-];
+const numbers = [ "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" ];
 const getValue2 = (input: string) => {
     let string = ""
     const foundNumbers: number[] = [];
@@ -51,10 +41,10 @@ const getValue2 = (input: string) => {
     return +`${first}${last}`
 };
 
-
-
 console.log(
 	inputs.reduce((acc, curr) => {
 		return acc + getValue2(curr);
 	}, 0)
 );
+
+
